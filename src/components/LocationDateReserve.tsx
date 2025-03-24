@@ -27,11 +27,15 @@ export default function LocationDateReserve({onDateChange, onLocationChange}
             name="location" id="location" value={location}
             onChange={(e)=>{setLocation(e.target.value); onLocationChange(e.target.value);}}
             className="h-[2em] w-[200px]">
-                <MenuItem value="BKK">R1</MenuItem>
-                <MenuItem value="CNX">R2</MenuItem>
-                <MenuItem value="HKT">R3</MenuItem>
-                <MenuItem value="CNX">R3</MenuItem>
-                <MenuItem value="HKT">R4</MenuItem>
+                <MenuItem value="BB">Bangkok Breeze</MenuItem>
+                <MenuItem value="BLB">Bistro Le Bonheur</MenuItem>
+                <MenuItem value="KBBQ">KoreanBBQ</MenuItem>
+                <MenuItem value="MI">Maeim</MenuItem>
+                <MenuItem value="MM">Mystic Masala</MenuItem>
+                <MenuItem value="RBG">Red Bamboo Garden</MenuItem>
+                <MenuItem value="SS">SiamSpice</MenuItem>
+                <MenuItem value="TOG">The Olive Grove</MenuItem>
+                <MenuItem value="ZZU">Zen & Zushi</MenuItem>
             </Select>
         </div>
     )
