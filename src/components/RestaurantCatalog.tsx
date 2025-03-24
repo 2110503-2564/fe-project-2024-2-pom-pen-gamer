@@ -1,30 +1,23 @@
-// import {VenueItem,VenueJson} from "../../interface"
 import Link from "next/link";
-import Card from "./AdsCardLeft";
+import ResCard from "./ResCard";
+import { RestaurantItem,RestaurantJson } from "../../interface";
 
-export default async function RestaurantCatalog({venuesJson} : {venuesJson :Promise<VenueJson>}) {
-   
-  const venueJsonReady = await venuesJson
-
-    return (
-<>
-<div className="text-yellow-700"> Explore {venueJsonReady.count} venues in our catalog</div>
-
-<div style={{margin : "20px", display:"flex", flexDirection : "row",flexWrap:"wrap"
-             ,justifyContent: "space-around",alignContent:"space-around" }}>
-
-{
- venueJsonReady.data.map((resTaurantItem:RestaurantItem,) =>(
-    <Link href={`/venue/${venueItem.id}`} key={venueItem.id} className="w-1/5">
-    <ResCard  venueName={venueItem.name} imgSrc={venueItem.picture}   />
-    </Link>
-  ))
-}
-
-              </div>
-
-
-</>
-
-    );
+export default async function RestaurantCatalog({restaurantsJson}:{restaurantsJson:RestaurantJson}){
+    const restaurantJsonReady = await restaurantsJson
+    return(
+        <>
+        Explore {restaurantJsonReady.count} restaurants in our catalog
+        <div style={{margin:"20px" ,display:"flex",
+        flexDirection:"row" ,alignContent:"space-around",
+        justifyContent:"space-around",flexWrap:"wrap",padding:"10px"}}>
+            {
+                restaurantJsonReady.data.map((restaurantItem:RestaurantItem)=>(
+                    <Link href={`/restaurants/${restaurantItem._id}`}className="w-1/5">
+                        <ResCard ResName={restaurantItem.name} imgSrc={restaurantItem.picture}/>
+                    </Link>
+                ))
+            }
+        </div>
+        </>
+    )
 }
