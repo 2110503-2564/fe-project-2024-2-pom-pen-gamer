@@ -1,3 +1,4 @@
+"use server"
 export default async function userRegister(
   userName: string,
   userTel: string,
@@ -22,6 +23,10 @@ export default async function userRegister(
   );
 
   if (!response.ok) {
+    console.log(userEmail)
+    console.log(userName)
+    console.log(userPassword)
+    console.log(userTel)
     throw new Error("Registration failed. Please try again.");
   }
 

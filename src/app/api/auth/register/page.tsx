@@ -13,65 +13,11 @@ import registerUser from "@/libs/userRegister";
 
 export default   function RegisterPage() {
 
-  const [name, setName] = useState("admin1");
-  const [telnumber, setTel] = useState("02-12345678");
-  const [email, setEmail] = useState("admin1@gmail.com");
-  const [password, setPassword] = useState("1111111");
-  const [role, setRole] = useState(true); // Assuming admi
-  // Define the regular expression for email validation
+  const [name, setName] = useState("");
+  const [telnumber, setTel] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
- // const [message, setMessage] = useState("");
-
-  // Function to handle form submission
-  // const addUser = async (addUserForm: FormData) => {
-  //   "use server"
-
-  //   // Extract user data from the form
-  //   const name = addUserForm.get("name");
-  //   const tel = addUserForm.get("tel");
-  //   const email = addUserForm.get("email");
-  //   const password = addUserForm.get("password");
-  //   const role = addUserForm.get("role") ? "admin" : "user"; // Check if the role checkbox is checked
-
-    // Validate email format
-    // if (!emailRegex.test(email)) {
-    //   alert("Please add a valid email address");
-    //   return; // Stop the form submission if the email is invalid
-    // }
-
-  
-     // await dbConnect();
-      // if(!name || ! tel || !email ||!password||!role)return null
-
-      
-      // const salt = await bcrypt.genSalt(10);
-      // const hashedPassword = await bcrypt.hash(password, salt);
-
-      // Create a new user in the database
-
-   
-    //   const user = await User.create({
-    //     name: name,
-    //     tel: tel,
-    //     email: email,
-    //     password: hashedPassword ,  // You should hash the password before storing it in a real app
-    //     role: role,
-    //   });
-
-
-
-
-
-    //   // You can return the user object or any success message here
-    //   console.log("User added successfully", user);
-    //   alert("Registration successful! Please log in.");
-    // } catch (error) {
-    //  // console.log(error);
-    //   alert("Registration failed. Please try again.");
-    // }
-  // };
-
- 
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -142,25 +88,11 @@ export default   function RegisterPage() {
             placeholder="Password"
             required
             className="bg-white border-2 border-gray-200 rounded w-full p-2 text-gray-700 focus:outline-none focus:border-blue-400"
-            value={email}
+            value={password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
-        </div>
-
-        {/* Admin Role Checkbox */}
-        <div className="flex items-center my-2">
-        <input
-            type="checkbox"
-            id="role"
-            name="role"
-            checked={role}  // Use checked to bind the state
-            onChange={(e) => setRole(e.target.checked)}  // Use e.target.checked to get true/false based on whether the checkbox is checked or not
-            className="mr-2"
-          />
-
-          <label className="text-gray-700" htmlFor="role">Admin</label>
         </div>
 
         {/* Submit Button */}
