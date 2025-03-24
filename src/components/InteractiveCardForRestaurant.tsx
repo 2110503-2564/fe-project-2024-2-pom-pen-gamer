@@ -4,10 +4,8 @@ import React from 'react';
 
 
 
-export default function InteractiveCard({children,contentName} : {children : React.ReactNode, contentName : string}){
-    function onCardSelected(){
-        alert("You select " + contentName )
-    }
+export default function InteractiveCardforRes({children,contentName} : {children : React.ReactNode, contentName : string}){
+ 
 
     function onCardMouseAction(event: React.SyntheticEvent){
              if(event.type == 'mouseover'){
@@ -24,11 +22,13 @@ export default function InteractiveCard({children,contentName} : {children : Rea
         
     
     return (
- <div className="w-full h-[300px] bg-white rounded-lg shadow-lg" 
+     
+ <div className="w-1/5 h-[300px] bg-yellow-100 rounded-lg shadow-8xl mx-24  border-4 border-yellow-900" 
  onMouseOver={(e)=>onCardMouseAction(e)}
  onMouseOut={(e)=>onCardMouseAction(e)}>
    
         {children}
+      
         </div>
     );
 };

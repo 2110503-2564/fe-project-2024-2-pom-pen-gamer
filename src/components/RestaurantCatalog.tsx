@@ -1,8 +1,8 @@
-import {VenueItem,VenueJson} from "../../interface"
+// import {VenueItem,VenueJson} from "../../interface"
 import Link from "next/link";
-import Card from "./Card";
+import Card from "./AdsCardLeft";
 
-export default async function VenueCatalog({venuesJson} : {venuesJson :Promise<VenueJson>}) {
+export default async function RestaurantCatalog({venuesJson} : {venuesJson :Promise<VenueJson>}) {
    
   const venueJsonReady = await venuesJson
 
@@ -14,9 +14,9 @@ export default async function VenueCatalog({venuesJson} : {venuesJson :Promise<V
              ,justifyContent: "space-around",alignContent:"space-around" }}>
 
 {
- venueJsonReady.data.map((venueItem:VenueItem) =>(
+ venueJsonReady.data.map((resTaurantItem:RestaurantItem,) =>(
     <Link href={`/venue/${venueItem.id}`} key={venueItem.id} className="w-1/5">
-    <Card  venueName={venueItem.name} imgSrc={venueItem.picture}  />
+    <ResCard  venueName={venueItem.name} imgSrc={venueItem.picture}   />
     </Link>
   ))
 }
