@@ -62,7 +62,7 @@ export default function DeleteEditBooking({
       </button>
 
       {isEditing && (
-        <div>
+        <div className="text-blue-700 px-5">
           <label>
             Reservation Date:
             <input
@@ -72,11 +72,13 @@ export default function DeleteEditBooking({
             />
           </label>
           <button
-            onClick={handleEdit}
-            className="mt-2 text-black text-base hover:text-gray-700 bg-[#a19589] border-none px-3 py-1 rounded"
-          >
-            Submit Edit
-          </button>
+              onClick={handleEdit}
+              className="bg-green-600 mx-4 mt-2 text-white text-base hover:bg-red-500 bg-[#a19589] border-none px-3 py-1 rounded">
+              Submit Edit
+            </button>
+
+        
+          
         </div>
       )}
     </div>
