@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import InteractiveCardforResID from "@/components/InteractiveCardForRID";
 
-export default async  function RestaurantDetailPage({params} : {params :{rid :string} }){
+export default async function RestaurantDetailPage({params} : {params :{rid :string} }){
    
 
 const restaurantdetail = await getRestaurant(params.rid)
@@ -33,7 +33,7 @@ const restaurantdetail = await getRestaurant(params.rid)
             alt="Restaurant Image"
             width={0}
             height={0}
-            sizes="350vw"
+            sizes="100vw"
             className="rounded-lg w-[50%]"
           />
         </div>

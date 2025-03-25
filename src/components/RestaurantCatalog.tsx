@@ -6,14 +6,17 @@ export default async function RestaurantCatalog({restaurantsJson}:{restaurantsJs
     const restaurantJsonReady = await restaurantsJson
     return(
         <>
-        Explore {restaurantJsonReady.count} restaurants in our catalog
-        <div style={{margin:"20px" ,display:"flex",
-        flexDirection:"row" ,alignContent:"space-around",
-        justifyContent:"space-around",flexWrap:"wrap",padding:"10px"}}>
+        <div className="text-yellow-700 font-serif text-3xl text-center items-center my-10">
+
+      
+        🔻 Explore {restaurantJsonReady.count} Restaurants in our Catalog 🔻
+        </div>
+        
+        <div className=" flex flex-wrap justify-around gap-4">
             {
                 restaurantJsonReady.data.map((restaurantItem:RestaurantItem)=>(
-                    <Link href={`/restaurants/${restaurantItem._id}`}className="w-1/5">
-                        <ResCard ResName={restaurantItem.name} imgSrc={restaurantItem.picture}/>
+                    <Link href={`/restaurants/${restaurantItem._id}`}className="w-1/5 ">
+                        <ResCard ResName={restaurantItem.name} imgSrc={restaurantItem.picture} Tel={restaurantItem.tel} opentime={restaurantItem.opentime} />
                     </Link>
                 ))
             }

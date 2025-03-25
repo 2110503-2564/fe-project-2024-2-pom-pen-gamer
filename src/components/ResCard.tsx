@@ -2,15 +2,18 @@
 
 import InteractiveCardforRes from "./InteractiveCardForRestaurant";
 import Image from "next/image";
-import { Rating } from "@mui/material";
-import { useState } from "react";
+
 
 export default function ResCard({
   ResName,
   imgSrc,
+  Tel,
+  opentime,
 }: {
   ResName: string;
   imgSrc: string;
+  Tel: string;
+  opentime : string;
 }) {
   return (
     <InteractiveCardforRes contentName={ResName}>
@@ -22,13 +25,19 @@ export default function ResCard({
           className="object-cover rounded-lg"
         />
       </div>
-      <div className="w-full h-[15%] p-[10p] font-bold text-blue-900 text-center">
+      <div className="w-full h-[15%] font-bold text-blue-900 text-center my-2">
         {" "}
         {ResName}
+        <div className="items-center justify-center">
+          <div className="text-green-700 text-center text-md font-sans"> 
+             Open at : {opentime}
+             <div> 
+            Tel : {Tel}
+             </div>
+          </div>
       </div>
       <div>
-        <div className="flex items-center justify-center my-0">
-          <div className="text-blue-800 mx-1"></div>
+     
         </div>
       </div>
     </InteractiveCardforRes>

@@ -10,7 +10,9 @@ export default async function Restuarant() {
   console.log(restaurant)
   return (
     <main>
+      
       <RestaurantCatalog restaurantsJson={restaurant}/>
+      
     </main>
   );
 }

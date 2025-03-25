@@ -14,10 +14,19 @@ export default async function TopMenu(){
         
         <div className={styles.menucontainer}>
 
-{<Image src={'/img/pg1.png'} className={styles.logoimg} alt='logo' width={0} height={0} sizes='100vh' /> }
-            <div className={styles.itemcontainer}>
+{
+    <Link href="http://localhost:3000/"> 
+    <Image src={'/img/pg1.png'} className={styles.logoimg} alt='logo' width={0} height={0} sizes='100vh' /> </Link> }
+            <div className='flex flex-row mr-auto text-center  items-center justify-center font-sans mx-3'>
            <TopMenuItem  title='Reservation' pageRef='/booking' />
+           <div className='mx-4'>
+           <TopMenuItem  title='My Reservation' pageRef='/mybooking' />
            </div>
+           </div>
+
+        
+         
+
           <div className='ml-auto'>
                      {
  session ? <Link href="/api/auth/signout"> <div className='flex items-center h-full px-2 text-sm text-white'> Sign-Out of {session.user.name}</div> </Link> : 

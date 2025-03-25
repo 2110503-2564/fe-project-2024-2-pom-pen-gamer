@@ -23,7 +23,7 @@ export default function InteractiveCardforRes({children,contentName} : {children
     
     return (
      
- <div className="w-full h-[300px] bg-yellow-100 rounded-lg shadow-8xl mx-24  border-4 border-yellow-900" 
+ <div className="w-full h-[300px] bg-yellow-100 rounded-lg shadow-8xl border-4 border-yellow-900" 
  onMouseOver={(e)=>onCardMouseAction(e)}
  onMouseOut={(e)=>onCardMouseAction(e)}>
    
