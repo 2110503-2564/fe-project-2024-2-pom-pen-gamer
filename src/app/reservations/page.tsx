@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { addReservation } from "@/libs/addReservations";
 import { getReservations } from "@/libs/getReservations";
+import LocationDateReserve from "@/components/LocationDateReserve";
 
 const ReservationDetails = () => {
     const searchParams = useSearchParams();
@@ -47,31 +48,38 @@ const ReservationDetails = () => {
     };
 
     return (
-        <div className="p-6">
-            <h1 className="text-2xl font-bold">Reservation Details</h1>
-            <div className="mt-4 border p-4 rounded-lg shadow">
-                <p><strong>Restaurant Name:</strong> {name}</p>
-            </div>
-
+        <div className="flex items-center justify-center min-h-screen bg-cover bg-center" style={{backgroundImage : "url('/img/bg3.jpg')"}}>
+        <div className="p-6 items-center justify-center bg-slate-100  bg-gray-200 rounded-lg w-fit px-10 py-10 shadow-lg">
+          <h1 className="my-5 text-4xl font-bold text-yellow-700 font-serif text-center p-5">Reservation Details</h1>
+      
+          <div className="bg-white text-xl text-blue-700 mt-4 border-gray-600 border-2 p-4 rounded-lg shadow">
+            <p><strong>Restaurant Name:</strong> {name}</p>
+          </div>
+      
+          <div className="flex items-center justify-center mt-4">
             {/* Reservation Date Input */}
             <div className="mt-4">
-                <label className="block font-semibold">Select Date:</label>
-                <input
-                    type="date"
-                    value={reservationDate}
-                    onChange={(e) => setReservationDate(e.target.value)}
-                    className="border p-2 rounded mt-1 w-full"
-                />
+              <label className="text-xl text-blue-700 font-semibold ">Select Date:</label>
+              <input
+                type="date"
+                value={reservationDate}
+                onChange={(e) => setReservationDate(e.target.value)}
+                className="text-xl text-blue-700 border p-2 rounded mt-1 w-full border-black border-2"
+              />
             </div>
-
-            {/* Add Reservation Button */}
+          </div>
+      
+          <div className="mt-4 flex items-center justify-center">
             <button
-                onClick={handleAddReservation}
-                className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              onClick={handleAddReservation}
+              className="flex items-center justify-center my-6 bg-red-800 border-2 border-red-800 text-white font-semibold py-3 px-4 text-md rounded-full hover:bg-yellow-600 hover:text-white hover:border-yellow-600 transition-all duration-300 ease-in-out font-serif shadow-xl mx-3 text-xl"
             >
-                Add Reservation
+              Add Reservation
             </button>
+          </div>
         </div>
+      </div>
+      
     );
 };
 
