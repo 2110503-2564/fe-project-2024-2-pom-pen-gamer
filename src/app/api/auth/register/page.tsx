@@ -11,8 +11,8 @@ export default   function RegisterPage() {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="p-20 my-10 items-center justify-center min-h-screen ">
-        <div className="text-3xl text-blue-700 mb-4 text-center font-bold">Create User</div>
+    <div className="p-24 my-10 items-center justify-center min-h-screen ">
+        <div className="text-3xl text-red-900 mb-4 text-center font-bold">Create User</div>
 
         {/* Name Field */}
         <div className="flex items-center my-2">
@@ -88,7 +88,7 @@ export default   function RegisterPage() {
 
         {/* Submit Button */}
         <button
-          className="w-full bg-blue-500 hover:bg-blue-700 text-white p-2 rounded mt-4"
+          className="w-full bg-yellow-700 hover:bg-green-700 text-white p-2 rounded mt-4"
            onClick={async() => {const response =await registerUser( name,telnumber,email,password);
                        alert(response);}}
         >
