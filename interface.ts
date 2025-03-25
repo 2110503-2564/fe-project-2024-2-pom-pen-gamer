@@ -22,15 +22,8 @@ export interface RestaurantItem {
   }
 
   export interface ReservationItem {
-    user:{
-        _id: string; 
-        name: string;
-        email: string;
-    }
-    restaurant: {
-        _id: string; 
-        name: string;
-      };
+    user:string
+    restaurant:string
     reservationDate: string;
     status : string;
     createdAt : Date;

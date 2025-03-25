@@ -8,15 +8,7 @@ export default async  function RestaurantDetailPage({params} : {params :{rid :st
 
 const restaurantdetail = await getRestaurant(params.rid)
    
-    /**
-     * Mock Data for Demonstration Only
-     */
-   /* 
-    const Mockvenurepo = new Map();
-    Mockvenurepo.set("001", {Name : "The Bloom Pavilion", image : "/img/bloom.jpg"})
-    Mockvenurepo.set("002", {Name : "Spark Space", image : "/img/sparkspace.jpg"})
-    Mockvenurepo.set("003", {Name : "The Grand Table", image : "/img/grandtable.jpg" })
-    */
+    
 
     return(
       <main className="text-center p-5 bg-center bg-cover items-center justify-center " style={{ backgroundImage: "url('/img/bg2.jpg')" }}>
@@ -49,7 +41,7 @@ const restaurantdetail = await getRestaurant(params.rid)
           <div className="text-md mx-5">Close Time: {restaurantdetail.data.closetime}</div>
         </div>
 
-        <Link href={`/booking?id=${params.rid}&name=${restaurantdetail.data.name}`}>
+        <Link href={`/reservations?id=${params.rid}&name=${encodeURIComponent(restaurantdetail.data.name)}`}>
         <button
           className="my-6 bg-red-800 border-2 border-red-800 text-white font-semibold py-3 px-4 text-md rounded-full hover:bg-yellow-600 hover:text-white hover:border-yellow-600 transition-all duration-300 ease-in-out font-serif shadow-xl mx-3 text-xl"
         >
