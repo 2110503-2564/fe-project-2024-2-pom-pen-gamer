@@ -1,12 +1,40 @@
-'use client'; 
-import registerUser from "@/libs/userRegister";  
-import { useState } from "react";   
+'use client';
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation"; // Use next/navigation for page navigation
+import registerUser from "@/libs/userRegister";
 
-export default function RegisterPage() {    
-  const [name, setName] = useState("");   
-  const [telnumber, setTel] = useState("");   
-  const [email, setEmail] = useState("");   
-  const [password, setPassword] = useState("");    
+export default function RegisterPage() {
+  const [name, setName] = useState("");
+  const [telnumber, setTel] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isClient, setIsClient] = useState(false);
+
+  const router = useRouter();
+
+  // Use useEffect to ensure client-side rendering
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const handleRegister = async () => {
+    const response = await registerUser(name, telnumber, email, password);
+
+    if (response.success) {
+      alert("Registered Successfully");
+
+      // Ensure router.push only runs after client-side rendering
+      if (isClient) {
+        router.push("/"); // Navigate to your desired page
+      }
+    } else {
+      alert("Registration failed");
+    }
+  };
+
+  if (!isClient) {
+    return null; // Avoid rendering before client-side mount
+  }
 
   return (     
     
@@ -89,10 +117,7 @@ export default function RegisterPage() {
         {/* Submit Button */}         
         <button           
           className="w-full bg-yellow-700 hover:bg-green-700 text-white p-2 rounded mt-4"           
-          onClick={async() => {             
-            const response = await registerUser(name, telnumber, email, password);             
-            alert(response);           
-          }}         
+          onClick={handleRegister}        
         >           
           Create User         
         </button>    
