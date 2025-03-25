@@ -2,7 +2,6 @@ import ResCard from "@/components/ResCard";
 import { RestaurantItem } from "../../../../interface";
 import { Suspense } from "react";
 import { LinearProgress } from "@mui/material";
-import CardPanel from "@/components/CardPanel";
 import getRestaurants from "@/libs/getRestaurants";
 import RestaurantCatalog from "@/components/RestaurantCatalog";
 
