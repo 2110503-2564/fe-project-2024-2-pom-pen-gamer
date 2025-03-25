@@ -43,13 +43,10 @@ export default async function ReservationList({
 
   if (!session) return null;
 
-  console.log(
-    "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
-  );
-  console.log("campground bookings", bookingsJsonResult);
+
 
   return (
-    <div>
+    <div >
       {bookingsJsonResult.count > 0 ? (
         // If there are bookings
         bookingsJsonResult.data.map(
@@ -58,20 +55,20 @@ export default async function ReservationList({
           ) => (
             <div
               key={booking.reservationDate} // Added a key prop to avoid React warning
-              className="bg-[#f0e5da] rounded px-5 mx-5 py-2 my-2" // Changed to a brown-gray color
+              className="bg-[#f0e5da] rounded px-5 mx-5 py-2 my-9" // Changed to a brown-gray color
             >
-              <div className="text-sm px-3">
-                Restaurant: {booking.restaurant.name}
+              <div className="text-3xl px-3 font-semibold font-sans text-blue-800">
+                Restaurant : {booking.restaurant.name}
               </div>
-              <div className="text-xl py-1">
+              <div className="mx-3 font-sans text-xl font-semibold py-1 text-pink-700">
                 {new Date(booking.reservationDate).toLocaleDateString("en-GB", {
                   day: "numeric",
                   month: "long",
                   year: "numeric",
                 })}
               </div>
-              <div className="text-sm px-3">user: {booking.user}</div>
-              <div className="text-sm px-3">
+              <div className="text-sm px-3 font-sans text-pink-700">user: {booking.user}</div>
+              <div className="text-sm px-3 font-sans text-pink-700">
                 Reservation: {booking._id.toString()}
               </div>
               <DeleteEditBooking reservationDate={booking.reservationDate} restaurantId={booking.restaurant._id} reservationId={booking._id} />
@@ -80,7 +77,7 @@ export default async function ReservationList({
         )
       ) : (
         // If there are no bookings
-        <div className="text-center text-xl font-new-york">
+        <div className="text-center text-xl font-new-york text-red-700">
           No Restaurant Reservation
         </div>
       )}

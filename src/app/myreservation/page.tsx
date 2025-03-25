@@ -11,7 +11,10 @@ export default async function CartPage(){
     const campgrounds = await getRestaurants()
     return(
         <main>
+           
+
             <BookingList reservationJson={bookings} restaurantJson={campgrounds}></BookingList>
+           
         </main>
     )
 }

@@ -49,14 +49,14 @@ export default function DeleteEditBooking({
     <div>
       <button
         onClick={handleDelete}
-        className="mt-2 text-black text-base hover:text-gray-700 bg-[#a19589] border-none px-3 py-1 rounded"
+        className="bg-yellow-600 mt-2 text-white text-base hover:bg-red-500 bg-[#a19589] border-none px-3 py-1 rounded"
       >
         Remove Reservation
       </button>
 
       <button
         onClick={() => setIsEditing(true)}
-        className="mt-2 text-black text-base hover:text-gray-700 bg-[#a19589] border-none px-3 py-1 rounded"
+        className="bg-yellow-600 mx-4 mt-2 text-white text-base hover:bg-red-500 bg-[#a19589] border-none px-3 py-1 rounded"
       >
         Edit Reservation
       </button>

@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { addReservation } from "@/libs/addReservations";
 import { getReservations } from "@/libs/getReservations";
-import LocationDateReserve from "@/components/LocationDateReserve";
+
 
 const ReservationDetails = () => {
     const searchParams = useSearchParams();
