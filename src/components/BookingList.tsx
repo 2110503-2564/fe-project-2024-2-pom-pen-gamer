@@ -21,12 +21,15 @@ export default function BookingList(){
       
         <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-2">
 <div hidden>key ={Vitem.tel} </div>
-<div className="text-sm text-black"> Name-Lastname : {Vitem.nameLastname} </div>
-<div className="text-sm text-black"> Tel : {Vitem.tel} </div>
-<div className="text-sm text-black"> Venue : {Vitem.venue} </div>
-<div className="text-sm text-black"> BookDate : {Vitem.bookDate} </div>
-<button className="text-white shadow-sm text-md px-3 my-3 bg-blue-700 rounded-lg" onClick={()=> dispatch(removeBooking(Vitem))}> Cancel this Booking </button>
-        </div>
+<div className="text-sm text-black">Name : {Vitem.name}</div>
+                                <div className="text-sm text-black">Address: {Vitem.address}</div>
+                                <div className="text-sm text-black">District: {Vitem.district}</div>
+                                <div className="text-sm text-black">Province: {Vitem.Province}</div>
+                                <div className="text-sm text-black">Tel: {Vitem.tel}</div>
+                                <div className="text-sm text-black">Postal Code: {Vitem.postalcode}</div>
+                                <div className="text-sm text-black">Open Time: {Vitem.opentime}</div>
+                                <div className="text-sm text-black">Close Time: {Vitem.closetime}</div>
+                                
     ))}
    
  </>
