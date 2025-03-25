@@ -18,9 +18,10 @@ export default async function TopMenu(){
     <Link href="http://localhost:3000/"> 
     <Image src={'/img/pg1.png'} className={styles.logoimg} alt='logo' width={0} height={0} sizes='100vh' /> </Link> }
             <div className='flex flex-row mr-auto text-center  items-center justify-center font-sans mx-3'>
-           <TopMenuItem  title='Reservation' pageRef='/booking' />
+                
+           <TopMenuItem  title='Reservation' pageRef='/reservations' />
            <div className='mx-4'>
-           <TopMenuItem  title='My Reservation' pageRef='/mybooking' />
+           <TopMenuItem  title='My Reservation' pageRef='/myreservation' />
            </div>
            </div>
 
