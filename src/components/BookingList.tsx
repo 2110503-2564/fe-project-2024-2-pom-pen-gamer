@@ -1,39 +1,89 @@
-"use client"
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+import { getReservations } from "@/libs/getReservations"; // You need to create/get this function
+import { RestaurantJson } from "../../interface";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
+import DeleteEditBooking from "./EditDeleteReservation";
+// Define the Restaurant and Reservation types
+interface Restaurant {
+  _id: string;
+  name: string;
+  address: string;
+  id: string;
+}
 
-import { AppDispatch, useAppSelector } from "@/redux/store";
-import { BookingItem } from "../../interface";
-import { useDispatch} from "react-redux";
-import { removeBooking } from "@/redux/features/bookSlice";
+interface Reservation {
+  _id: string;
+  reservationDate: string;
+  user: string;
+  restaurant: Restaurant; // restaurant is an object of type Restaurant
+  status: string;
+  createdAt: string;
+}
 
-export default function BookingList(){
-   
-    //เอา element in array มาใส่ในนี้
-     const venueItem = useAppSelector((state) => state.bookSlice.bookItems);
-    const dispatch = useDispatch<AppDispatch>()
-   
-   
-    return(
-  <>
-  {
-     venueItem.length == 0 ? (<div className="text-red-700 text-2xl font-bold flex items-center justify-center py-8"> No Venue Booking</div> ): (
-    <>
-     { venueItem.map((Vitem : BookingItem) =>(
-      
-        <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-2">
-<div hidden>key ={Vitem.tel} </div>
-<div className="text-sm text-black"> Name-Lastname : {Vitem.nameLastname} </div>
-<div className="text-sm text-black"> Tel : {Vitem.tel} </div>
-<div className="text-sm text-black"> Venue : {Vitem.venue} </div>
-<div className="text-sm text-black"> BookDate : {Vitem.bookDate} </div>
-<button className="text-white shadow-sm text-md px-3 my-3 bg-blue-700 rounded-lg" onClick={()=> dispatch(removeBooking(Vitem))}> Cancel this Booking </button>
+interface ReservationJson {
+  success: boolean;
+  count: number;
+  pagination: object;
+  data: Reservation[];
+}
+
+export default async function ReservationList({
+  reservationJson,
+  restaurantJson,
+}: {
+  reservationJson: Promise<ReservationJson>;
+  restaurantJson: Promise<RestaurantJson>;
+}) {
+  const bookingsJsonResult = await reservationJson;
+  const campsJsonResult = await restaurantJson;
+  const session = await getServerSession(authOptions);
+
+
+  if (!session) return null;
+
+  console.log(
+    "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  );
+  console.log("campground bookings", bookingsJsonResult);
+
+  return (
+    <div>
+      {bookingsJsonResult.count > 0 ? (
+        // If there are bookings
+        bookingsJsonResult.data.map(
+          (
+            booking: Reservation // Explicitly define the type of 'booking'
+          ) => (
+            <div
+              key={booking.reservationDate} // Added a key prop to avoid React warning
+              className="bg-[#f0e5da] rounded px-5 mx-5 py-2 my-2" // Changed to a brown-gray color
+            >
+              <div className="text-sm px-3">
+                Restaurant: {booking.restaurant.name}
+              </div>
+              <div className="text-xl py-1">
+                {new Date(booking.reservationDate).toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </div>
+              <div className="text-sm px-3">user: {booking.user}</div>
+              <div className="text-sm px-3">
+                Reservation: {booking._id.toString()}
+              </div>
+              <DeleteEditBooking reservationDate={booking.reservationDate} restaurantId={booking.restaurant._id} reservationId={booking._id} />
+            </div>
+          )
+        )
+      ) : (
+        // If there are no bookings
+        <div className="text-center text-xl font-new-york">
+          No Restaurant Reservation
         </div>
-    ))}
-   
- </>
- 
-  )
-  }
-
-  </>
-    );
+      )}
+    </div>
+  );
 }

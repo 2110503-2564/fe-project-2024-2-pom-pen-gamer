@@ -10,6 +10,7 @@ export interface RestaurantItem {
     opentime : string,
     closetime : string,
     picture: string,
+    reservations: ReservationItem[],
     __v: number,
     id: string
   }
@@ -22,12 +23,14 @@ export interface RestaurantItem {
   }
 
   export interface ReservationItem {
-    user:string
-    restaurant:string
+    _id: string;
     reservationDate: string;
-    status : string;
-    createdAt : Date;
-  }
+    user: string; // This is a user ID
+    restaurant: string; // This is a restaurant ID
+    status: string;
+    createdAt: string;
+    __v: number;
+}
 
   export interface User {
     _id: string;
