@@ -34,40 +34,7 @@ providers: [
   }),
   
   
-  CredentialsProvider({
-    name: 'Credential',
-    credentials: {
-      name: { label: 'Name', type: 'text', placeholder: 'Full Name' },
-      tel: { label: 'Telephone', type: 'tel', placeholder: 'Phone Number' },
-      email: { label: 'Email', type: 'email', placeholder: 'email' },
-      password: { label: 'Password', type: 'password' },
-    },
-    async authorize(credentials, req) {
-      if (!credentials) return null;
-
-      // Register the user
-      try {
-        const user = await userRegister(
-          credentials.name,
-          credentials.tel,
-          credentials.email,
-          credentials.password
-        );
-
-        if (user) {
-          // User successfully registered
-          return user;
-        } else {
-          // If registration fails, return null
-          return null;
-        }
-      } catch (error) {
-        // Handle registration error
-        console.error('Error during user registration:', error);
-        return null;
-      }
-    },
-  }),
+  
 ],
   session: { strategy: "jwt" },
   callbacks: {
