@@ -34,7 +34,6 @@ providers: [
   }),
   
   
-  
 ],
   session: { strategy: "jwt" },
   callbacks: {
