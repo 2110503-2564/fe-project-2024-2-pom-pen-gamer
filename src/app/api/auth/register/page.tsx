@@ -11,8 +11,8 @@ export default   function RegisterPage() {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="text-xl text-blue-700 mb-4 text-center">Create User</div>
+    <div className="p-20 my-10 items-center justify-center min-h-screen ">
+        <div className="text-3xl text-blue-700 mb-4 text-center font-bold">Create User</div>
 
         {/* Name Field */}
         <div className="flex items-center my-2">
@@ -33,7 +33,7 @@ export default   function RegisterPage() {
         </div>
 
         {/* Telephone Field */}
-        <div className="flex items-center my-2">
+        <div className="flex items-center my-4">
           <label className="w-auto block text-gray-700 pr-4" htmlFor="tel">Telephone</label>
           <input
             type="text"
@@ -51,7 +51,7 @@ export default   function RegisterPage() {
         </div>
 
         {/* Email Field */}
-        <div className="flex items-center my-2">
+        <div className="flex items-center my-4">
           <label className="w-auto block text-gray-700 pr-4" htmlFor="email">Email</label>
           <input
             type="email"
@@ -69,7 +69,7 @@ export default   function RegisterPage() {
         </div>
 
         {/* Password Field */}
-        <div className="flex items-center my-2">
+        <div className="flex items-center my-4">
           <label className="w-auto block text-gray-700 pr-4" htmlFor="password">Password</label>
           <input
             type="password"
