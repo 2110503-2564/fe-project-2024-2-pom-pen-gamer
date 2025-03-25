@@ -1,12 +1,4 @@
 'use client';
-import { authOptions } from "../[...nextauth]/authOptions";
-import { getServerSession } from "next-auth";
-import getUserProfile from "@/libs/getUserProfile";
-import { dbConnect } from "@/db/dbConnect";
-import User from "@/db/models/User";  // Update to use User model
-import { revalidateTag } from "next/cache";
-import { redirect } from "next/navigation";
-import bcrypt from "bcryptjs";
 import registerUser from "@/libs/userRegister";
  import { useState } from "react";
 
@@ -17,7 +9,6 @@ export default   function RegisterPage() {
   const [telnumber, setTel] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   return (
     <div className="p-24 my-10 items-center justify-center min-h-screen ">

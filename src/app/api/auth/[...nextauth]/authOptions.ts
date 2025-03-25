@@ -40,7 +40,7 @@ providers: [
       name: { label: 'Name', type: 'text', placeholder: 'Full Name' },
       tel: { label: 'Telephone', type: 'tel', placeholder: 'Phone Number' },
       email: { label: 'Email', type: 'email', placeholder: 'email' },
-      password: { label: 'Password', type: 'password'  },
+      password: { label: 'Password', type: 'password' },
     },
     async authorize(credentials, req) {
       if (!credentials) return null;
