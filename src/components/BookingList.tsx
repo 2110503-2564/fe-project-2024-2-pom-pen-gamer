@@ -69,7 +69,7 @@ export default async function ReservationList({
               </div>
               <div className="text-sm px-3 font-sans text-pink-700">user: {booking.user}</div>
               <div className="text-sm px-3 font-sans text-pink-700">
-                Reservation: {booking._id.toString()}
+                Reservation: {booking.restaurant.name}
               </div>
               <DeleteEditBooking reservationDate={booking.reservationDate} restaurantId={booking.restaurant._id} reservationId={booking._id} />
             </div>
