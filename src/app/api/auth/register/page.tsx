@@ -20,8 +20,8 @@ export default   function RegisterPage() {
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   return (
-    <div className="p-20 my-10 items-center justify-center min-h-screen ">
-        <div className="text-3xl text-blue-700 mb-4 text-center font-bold">Create User</div>
+    <div className="p-24 my-10 items-center justify-center min-h-screen ">
+        <div className="text-3xl text-red-900 mb-4 text-center font-bold">Create User</div>
 
         {/* Name Field */}
         <div className="flex items-center my-2">
