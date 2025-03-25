@@ -97,7 +97,7 @@ export default   function RegisterPage() {
 
         {/* Submit Button */}
         <button
-          className="w-full bg-blue-500 hover:bg-blue-700 text-white p-2 rounded mt-4"
+          className="w-full bg-yellow-700 hover:bg-green-700 text-white p-2 rounded mt-4"
            onClick={async() => {const response =await registerUser( name,telnumber,email,password);
                        alert(response);}}
         >
